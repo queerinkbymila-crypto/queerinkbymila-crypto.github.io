@@ -123,8 +123,14 @@ section{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:7rem 
 .section-head{text-align:center;margin-bottom:4.5rem;}
 .section-head h2{font-size:clamp(2.4rem,6vw,3.6rem);}
 
-.book{display:grid;grid-template-columns:300px 1fr;gap:3.2rem;align-items:center;margin-bottom:5.5rem;}
-.book.flip{grid-template-columns:1fr 300px;}
+.book{
+  display:grid;
+  grid-template-columns:300px minmax(0, 520px);
+  gap:3.2rem;align-items:center;
+  justify-content:center;
+  margin-bottom:5.5rem;
+}
+.book.flip{grid-template-columns:minmax(0, 520px) 300px;}
 .book.flip .cover{order:2;}
 .book img{width:100%;display:block;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid var(--line);}
 .book .meta .order{
@@ -142,6 +148,20 @@ section{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:7rem 
   font-variant:small-caps;text-transform:lowercase;letter-spacing:0.18em;font-size:1.05rem;
   color:var(--accent);border:1px solid var(--line);padding:0.55rem 1.2rem;
 }
+/* small note under a book (e.g. Kindle Unlimited) */
+.book .meta .note{
+  display:block;margin-top:1rem;
+  font-style:italic;font-size:1rem;color:var(--muted);
+}
+/* secondary text link under a book (e.g. ARC team) */
+.book .meta .arc-link{
+  display:inline-block;margin-top:1.4rem;
+  font-family:'Cormorant Garamond',serif;font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:0.18em;font-size:1.05rem;color:var(--accent);
+  border-bottom:1px solid var(--line);padding-bottom:2px;
+  transition:opacity .3s ease;
+}
+.book .meta .arc-link:hover{opacity:0.7;}
 
 .whatsnext{text-align:center;border-top:1px solid var(--line);padding-top:4rem;margin-top:1rem;}
 .whatsnext .eyebrow{margin-bottom:1rem;}
@@ -228,6 +248,7 @@ footer{
       <p class="sub">Some legacies are carved in flesh</p>
       <p>A new killer revives an unfinished doctrine, and the past Nicole survived sharpens into the present. To stop the cycle, she must face the man who shaped her — and the detective who won't let her face it alone.</p>
       <a class="btn" href="https://www.amazon.com/dp/B0GC25Z9WG?utm_source=website&utm_medium=books&utm_content=unshaped" target="_blank" rel="noopener">Read on Amazon</a>
+      <span class="note">Free to read on Kindle Unlimited.</span>
     </div>
   </article>
 
@@ -240,6 +261,7 @@ footer{
       <p>Three deaths tied to a powerful religious institution are ruled suicides. Former detective Mariana Vega knows that language — clean, conclusive, built to close doors. The case pulls back the woman she once let go.</p>
       <!-- EDIT-OFTEN: launch date -->
       <span class="status">Coming September 8, 2026</span>
+      <a class="arc-link" href="https://booksprout.co/reviewer/review-copy/view/286015/the-unsilenced" target="_blank" rel="noopener">The ARC team is open — read it first</a>
     </div>
   </article>
 
