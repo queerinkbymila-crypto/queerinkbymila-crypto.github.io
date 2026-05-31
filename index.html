@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mila Duran — Author</title>
+<meta name="description" content="Mila Duran writes dark sapphic psychological thrillers. Author of The Carved Series." />
+
+<!-- ============================================================
+     FONTS
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   ===  EDIT-OFTEN SECTION  ===================================
+   The things most likely to change are right here at the top.
+   Change the text between the quotes. Don't touch anything else.
+   ============================================================ */
+:root{
+  /* Brand colors */
+  --cream:    #EDE4D3;   /* main text */
+  --bg:       #0B0C0E;   /* near-black background */
+  --bg-2:     #131519;   /* slightly lighter panel */
+  --accent:   #D9DDE2;   /* silver / cold white accent */
+  --muted:    #8A8678;   /* dim caption text */
+  --line:     rgba(237,228,211,0.16); /* hairline rules */
+}
+
+/* ============================================================
+   ===  STRUCTURE / STYLING  (rarely needs editing)  ==========
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'EB Garamond', Georgia, serif;
+  font-size:1.18rem;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* subtle film-grain / vignette atmosphere */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;z-index:1;
+  background:radial-gradient(120% 90% at 50% 0%, transparent 55%, rgba(0,0,0,0.55) 100%);
+}
+
+h1,h2,h3,.display{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:0.01em;
+}
+
+a{color:inherit;text-decoration:none;}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:center;gap:2.4rem;
+  padding:1.5rem 1rem;
+  background:linear-gradient(to bottom, rgba(11,12,14,0.92), rgba(11,12,14,0));
+  backdrop-filter:blur(2px);
+}
+nav a{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.05rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--cream);
+  opacity:0.72;
+  transition:opacity .3s ease;
+}
+nav a:hover{opacity:1;}
+
+/* ---------- shared section frame ---------- */
+section{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto;
+  padding:7rem 1.6rem;
+}
+.eyebrow{
+  font-family:'Cormorant Garamond', serif;
+  text-transform:uppercase;
+  letter-spacing:0.42em;
+  font-size:0.82rem;
+  color:var(--accent);
+  opacity:0.75;
+  margin-bottom:1.4rem;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  max-width:none;padding:6rem 1.6rem;
+}
+.hero h1{
+  font-size:clamp(3.2rem, 11vw, 8rem);
+  font-weight:600;
+  letter-spacing:0.04em;
+}
+.hero .tag{
+  font-style:italic;
+  font-size:clamp(1.15rem,2.6vw,1.6rem);
+  color:var(--cream);
+  opacity:0.86;
+  margin:1.8rem 0 2.8rem;
+  max-width:30ch;
+}
+.hero .rule{
+  width:46px;height:1px;background:var(--accent);
+  opacity:0.6;margin:0 auto 2.6rem;
+}
+
+/* ---------- BUTTON ---------- */
+.btn{
+  display:inline-block;
+  font-family:'Cormorant Garamond', serif;
+  text-transform:uppercase;
+  letter-spacing:0.24em;
+  font-size:0.95rem;
+  color:var(--bg);
+  background:var(--accent);
+  padding:1rem 2.4rem;
+  border:1px solid var(--accent);
+  transition:background .35s ease, color .35s ease;
+}
+.btn:hover{background:transparent;color:var(--accent);}
+.btn.ghost{
+  background:transparent;color:var(--accent);
+}
+.btn.ghost:hover{background:var(--accent);color:var(--bg);}
+
+/* ---------- BOOKS ---------- */
+.section-head{text-align:center;margin-bottom:4.5rem;}
+.section-head h2{font-size:clamp(2.4rem,6vw,3.6rem);}
+
+.book{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:3.2rem;
+  align-items:center;
+  margin-bottom:5.5rem;
+}
+/* alternate: books marked .flip put the cover on the right */
+.book.flip{grid-template-columns:1fr 300px;}
+.book.flip .cover{order:2;}
+.book img{
+  width:100%;
+  display:block;
+  box-shadow:0 24px 60px rgba(0,0,0,0.6);
+  border:1px solid var(--line);
+}
+.book .meta .order{
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:0.3em;text-transform:uppercase;
+  font-size:0.78rem;color:var(--accent);opacity:0.75;
+  margin-bottom:0.7rem;
+}
+.book .meta h3{font-size:2.5rem;margin-bottom:0.3rem;}
+.book .meta .sub{
+  font-style:italic;color:var(--muted);
+  font-size:1.05rem;margin-bottom:1.3rem;
+}
+.book .meta p{margin-bottom:1.6rem;max-width:46ch;color:var(--cream);opacity:0.9;}
+.book .meta .status{
+  display:inline-block;font-family:'Cormorant Garamond',serif;
+  letter-spacing:0.2em;text-transform:uppercase;font-size:0.8rem;
+  color:var(--accent);border:1px solid var(--line);
+  padding:0.6rem 1.2rem;
+}
+
+/* what's next */
+.whatsnext{
+  text-align:center;border-top:1px solid var(--line);
+  padding-top:4rem;margin-top:1rem;
+}
+.whatsnext .eyebrow{margin-bottom:1rem;}
+.whatsnext p{color:var(--muted);font-style:italic;max-width:40ch;margin:0 auto;}
+
+/* ---------- ABOUT ---------- */
+.about{
+  display:grid;grid-template-columns:0.85fr 1.15fr;
+  gap:4rem;align-items:center;
+}
+.about img{
+  width:100%;display:block;
+  border:1px solid var(--line);
+  box-shadow:0 24px 60px rgba(0,0,0,0.55);
+  filter:grayscale(28%) contrast(1.02);
+}
+.about .body p{margin-bottom:1.3rem;opacity:0.92;}
+.about .body .eyebrow{margin-bottom:1.6rem;}
+
+/* ---------- CONTACT ---------- */
+.contact{text-align:center;padding-bottom:8rem;}
+.contact h2{font-size:clamp(2.2rem,5.5vw,3.2rem);margin-bottom:1.6rem;}
+.contact .email{
+  font-size:1.4rem;font-style:italic;color:var(--accent);
+  display:inline-block;margin-bottom:2.6rem;
+  border-bottom:1px solid var(--line);padding-bottom:3px;
+}
+.socials{
+  display:flex;gap:2.4rem;justify-content:center;flex-wrap:wrap;
+}
+.socials a{
+  font-family:'Cormorant Garamond',serif;
+  text-transform:uppercase;letter-spacing:0.24em;
+  font-size:0.9rem;opacity:0.78;transition:opacity .3s,color .3s;
+}
+.socials a:hover{opacity:1;color:var(--accent);}
+
+/* ---------- FOOTER ---------- */
+footer{
+  position:relative;z-index:2;
+  text-align:center;padding:2.6rem 1rem;
+  border-top:1px solid var(--line);
+  color:var(--muted);font-size:0.85rem;letter-spacing:0.1em;
+}
+
+/* ---------- reveal-on-scroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease, transform 1s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:760px){
+  body{font-size:1.08rem;}
+  nav{gap:1.3rem;padding:1.1rem 0.6rem;}
+  nav a{font-size:0.82rem;letter-spacing:0.16em;}
+  section{padding:5rem 1.4rem;}
+  .book,.book.flip{grid-template-columns:1fr;gap:1.8rem;}
+  .book .cover{max-width:240px;margin:0 auto;}
+  .book.flip .cover{order:0;}
+  .book .meta{text-align:center;}
+  .book .meta p{margin-left:auto;margin-right:auto;}
+  .about{grid-template-columns:1fr;gap:2.4rem;}
+  .about .img-wrap{max-width:280px;margin:0 auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#books">Books</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ============================================================
+     HERO  /  HOME
+     ============================================================ -->
+<header class="hero" id="home">
+  <h1 class="reveal">MILA&nbsp;DURAN</h1>
+  <p class="tag reveal">Dark sapphic thrillers. Queerness at the center, never the subplot.</p>
+  <div class="rule reveal"></div>
+  <!-- EDIT-OFTEN: the link below is your Book 1 Amazon page -->
+  <a class="btn reveal" href="https://www.amazon.com/dp/B0GC25Z9WG?utm_source=website&utm_medium=hero&utm_content=start_the_series" target="_blank" rel="noopener">Start the Series</a>
+</header>
+
+<!-- ============================================================
+     BOOKS
+     ============================================================ -->
+<section id="books">
+  <div class="section-head reveal">
+    <p class="eyebrow">The Work</p>
+    <h2>The Carved Series</h2>
+  </div>
+
+  <!-- BOOK 1 -->
+  <article class="book reveal">
+    <div class="cover"><img src="images/the-unshaped.png" alt="The Unshaped — Book One cover" /></div>
+    <div class="meta">
+      <p class="order">Book One</p>
+      <h3>The Unshaped</h3>
+      <p class="sub">Some legacies are carved in flesh.</p>
+      <p>A new killer revives an unfinished doctrine, and the past Nicole survived sharpens into the present. To stop the cycle, she must face the man who shaped her — and the detective who won't let her face it alone.</p>
+      <a class="btn" href="https://www.amazon.com/dp/B0GC25Z9WG?utm_source=website&utm_medium=books&utm_content=unshaped" target="_blank" rel="noopener">Read on Amazon</a>
+    </div>
+  </article>
+
+  <!-- BOOK 2 -->
+  <article class="book flip reveal">
+    <div class="cover"><img src="images/the-unsilenced.png" alt="The Unsilenced — Book Two cover" /></div>
+    <div class="meta">
+      <p class="order">Book Two</p>
+      <h3>The Unsilenced</h3>
+      <p class="sub">They became record.</p>
+      <p>Three deaths tied to a powerful religious institution are ruled suicides. Former detective Mariana Vega knows that language — clean, conclusive, built to close doors. The case pulls back the woman she once let go.</p>
+      <!-- EDIT-OFTEN: launch date below -->
+      <span class="status">Coming September 8, 2026</span>
+    </div>
+  </article>
+
+  <!-- WHAT'S NEXT  (placeholder for future projects) -->
+  <div class="whatsnext reveal">
+    <p class="eyebrow">What's Next</p>
+    <p>New work in progress.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="about">
+  <div class="img-wrap reveal"><img src="images/mila-duran.png" alt="Mila Duran" /></div>
+  <div class="body reveal">
+    <p class="eyebrow">About</p>
+    <p>Mila Duran is a Colombian-born writer who moved to the United States at the age of sixteen. <em>The Unshaped</em> is her debut novel and the first in a psychological thriller series centered on realism, power, and survival.</p>
+    <p>When she couldn't find the sapphic thrillers she was looking for, she decided to write one herself. She is committed to portraying LGBTQ+ characters with authenticity and depth, bringing queer stories into a genre that rarely centers them.</p>
+    <p>Outside of writing, she has a deep love for animals. This series is her driving creative motivation.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact" class="contact">
+  <div class="reveal">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <a class="email" href="mailto:queerinkbymila@gmail.com">queerinkbymila@gmail.com</a>
+    <div class="socials">
+      <a href="https://www.instagram.com/queerinkbymila" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61587218310926" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@queerinkbymila_author" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Mila Duran · The Carved Series
+</footer>
+
+<script>
+  // current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // reveal-on-scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // stagger the hero items on load
+  window.addEventListener('load',()=>{
+    document.querySelectorAll('.hero .reveal').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('in'), 180*i);
+    });
+  });
+</script>
+</body>
+</html>
