@@ -133,6 +133,21 @@ section{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:7rem 
 .book.flip{grid-template-columns:minmax(0, 520px) 300px;}
 .book.flip .cover{order:2;}
 .book img{width:100%;display:block;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid var(--line);}
+/* cover wrapper so we can overlay the star rating */
+.book .cover{position:relative;}
+.book .stars{
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:4px;
+  background:rgba(8,12,15,0.72);
+  padding:6px 12px;border-radius:2px;
+  backdrop-filter:blur(2px);
+  border:1px solid rgba(237,228,211,0.18);
+}
+.book .stars span{
+  font-size:1.15rem;line-height:1;
+  color:#E8B84B;                 /* gold */
+}
+.book .stars span.empty{color:rgba(237,228,211,0.28);}  /* faded star */
 .book .meta .order{
   font-family:'Cormorant Garamond',serif;font-variant:small-caps;text-transform:lowercase;
   letter-spacing:0.28em;font-size:1rem;color:var(--accent);opacity:0.8;margin-bottom:0.7rem;
@@ -241,14 +256,18 @@ footer{
   </div>
 
   <article class="book reveal">
-    <div class="cover"><img src="the-unshaped.png" alt="The Unshaped — Book One cover" /></div>
+    <div class="cover">
+      <div class="stars" aria-label="Rated 4 out of 5 stars on Amazon">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span class="empty">&#9733;</span>
+      </div>
+      <img src="the-unshaped.png" alt="The Unshaped — Book One cover" />
+    </div>
     <div class="meta">
       <p class="order">Book One</p>
       <h3>The Unshaped</h3>
       <p class="sub">Some legacies are carved in flesh</p>
       <p>A new killer revives an unfinished doctrine, and the past Nicole survived sharpens into the present. To stop the cycle, she must face the man who shaped her — and the detective who won't let her face it alone.</p>
-      <a class="btn" href="https://www.amazon.com/dp/B0GC25Z9WG?utm_source=website&utm_medium=books&utm_content=unshaped" target="_blank" rel="noopener">Read on Amazon</a>
-      <span class="note">Free to read on Kindle Unlimited.</span>
+      <a class="btn" href="https://www.amazon.com/dp/B0GC25Z9WG?utm_source=website&utm_medium=books&utm_content=unshaped" target="_blank" rel="noopener">Read Free on Kindle Unlimited</a>
     </div>
   </article>
 
