@@ -164,19 +164,42 @@ section{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:7rem 
   display:block;margin-top:1rem;
   font-style:italic;font-size:1rem;color:var(--muted);
 }
-/* secondary text link under a book (e.g. ARC team) */
+/* ARC call-to-action button */
 .book .meta .arc-link{
-  display:inline-block;margin-top:1.4rem;
-  font-family:'Cormorant Garamond',serif;font-variant:small-caps;text-transform:lowercase;
-  letter-spacing:0.18em;font-size:1.05rem;color:var(--accent);
-  border-bottom:1px solid var(--line);padding-bottom:2px;
-  transition:opacity .3s ease;
+  display:inline-block;margin-top:1.5rem;
+  font-family:'Cormorant Garamond', serif;
+  font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:0.2em;font-size:1.12rem;
+  color:var(--bg);background:var(--accent);
+  padding:0.9rem 2.4rem;border:1px solid var(--accent);
+  transition:background .35s ease, color .35s ease;
 }
-.book .meta .arc-link:hover{opacity:0.7;}
+.book .meta .arc-link:hover{background:transparent;color:var(--accent);}
 
 .whatsnext{text-align:center;border-top:1px solid var(--line);padding-top:4rem;margin-top:1rem;}
 .whatsnext .eyebrow{margin-bottom:1.2rem;font-size:1.5rem;letter-spacing:0.3em;}
 .whatsnext p{color:var(--muted);font-style:italic;font-size:1.55rem;max-width:40ch;margin:0 auto;}
+
+/* ---------- REVIEWS ---------- */
+.reviews .section-head{margin-bottom:4rem;}
+.review-grid{
+  display:grid;grid-template-columns:repeat(3, 1fr);
+  gap:3rem;align-items:start;
+}
+.review{position:relative;padding-top:2.2rem;}
+.review::before{
+  content:"\201C";                 /* opening quotation mark */
+  position:absolute;top:-1.2rem;left:-0.3rem;
+  font-family:'Cormorant Garamond', serif;
+  font-size:5rem;line-height:1;color:var(--cream);opacity:0.5;
+}
+.review p{color:var(--cream);opacity:0.92;margin-bottom:1.1rem;font-size:1.12rem;}
+.review .rstars{display:flex;gap:3px;margin-bottom:0.8rem;}
+.review .rstars span{font-size:1.1rem;color:#E8B84B;line-height:1;}
+.review .rstars span.empty{color:rgba(237,228,211,0.28);}
+.review .cite{
+  font-style:italic;color:var(--muted);font-size:1rem;
+}
 
 /* ---------- ABOUT ---------- */
 .about{display:grid;grid-template-columns:0.85fr 1.15fr;gap:4rem;align-items:center;}
@@ -223,6 +246,7 @@ footer{
   .book .meta p{margin-left:auto;margin-right:auto;}
   .about{grid-template-columns:1fr;gap:2.4rem;}
   .about .img-wrap{max-width:280px;margin:0 auto;}
+  .review-grid{grid-template-columns:1fr;gap:3.2rem;}
 }
 </style>
 </head>
@@ -278,13 +302,38 @@ footer{
       <p>Three deaths tied to a powerful religious institution are ruled suicides. Former detective Mariana Vega knows that language. Clean, conclusive, built to close doors. The case pulls back the woman she once let go.</p>
       <!-- EDIT-OFTEN: launch date -->
       <span class="status">Coming September 8, 2026</span>
-      <a class="arc-link" href="https://booksprout.co/reviewer/review-copy/view/286015/the-unsilenced" target="_blank" rel="noopener">The ARC team is open — read it first</a>
+      <a class="arc-link" href="https://booksprout.co/reviewer/review-copy/view/286015/the-unsilenced" target="_blank" rel="noopener">Join the ARC Team</a>
     </div>
   </article>
 
   <div class="whatsnext reveal">
     <p class="eyebrow">What's Next</p>
     <p>New work in progress.</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="section-head reveal">
+    <p class="eyebrow">What Readers Are Saying</p>
+    <h2>The Unshaped</h2>
+  </div>
+  <div class="review-grid">
+    <div class="review reveal">
+      <p>The Unshaped is a mostly-solid, fast-moving crime thriller with a genuinely sticky premise: a killer using a twisted belief system as a structure for the murders. That framework keeps the tension high without needing a bunch of filler.</p>
+      <div class="rstars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span class="empty">&#9733;</span></div>
+      <p class="cite">— Corey Darkwater, Booksprout</p>
+    </div>
+    <div class="review reveal">
+      <p>Unshaped pulled me in so completely that I finished it in one sitting! It's fast-paced and intense, with a disturbing and original premise. The author's writing is engaging, making it easy to stay immersed throughout the story.</p>
+      <div class="rstars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span class="empty">&#9733;</span></div>
+      <p class="cite">— JulieAnn C., Amazon</p>
+    </div>
+    <div class="review reveal">
+      <p>In The Unshaped, a homicide detective and the daughter of an imprisoned serial killer work together to hunt a copycat killer. I found the writing style and story rather unique compared to anything I've read before. The opening was well done, and I was immediately engaged.</p>
+      <div class="rstars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span class="empty">&#9733;</span></div>
+      <p class="cite">— Leara Nicole Morris-Clark, Amazon</p>
+    </div>
   </div>
 </section>
 
